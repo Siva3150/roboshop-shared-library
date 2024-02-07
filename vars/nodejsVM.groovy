@@ -19,7 +19,7 @@ def call(Map configMap){
 
             // text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-            booleanParam(name: 'Deploy', defaultValue: true, description: 'Toggle this value')
+            booleanParam(name: 'Deploy', defaultValue: false, description: 'Toggle this value')
 
             // choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
@@ -98,7 +98,7 @@ def call(Map configMap){
                                 string(name: 'version', value: "$packageVersion"),
                                 string(name: 'environment', value: "dev")
                             ]
-                            build job: "../${configMap.component}-deploy", wait: false, parameters: params
+                            build job: "../${configMap.component}-deploy", wait: true, parameters: params
                         }
                 }
             }
